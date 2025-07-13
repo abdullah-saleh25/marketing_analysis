@@ -1,0 +1,90 @@
+-- data cleaning 
+-- Query to categorize products bases on their price
+-- product table 
+select
+	 ProductID,
+	 ProductName,
+	 Price,
+	case when Price < 50 then 'low'
+	when Price between 50 and 200 then 'medium'
+	else 'high'
+	end as price_category
+from products
+
+
+-- customers table
+--join customers table with geography table
+
+select  
+	c.CustomerID,
+	c.CustomerName,
+	c.Email,
+	c.Gender,
+	c.Age,
+	g.Country,
+	g.City
+from customers c
+left join geography g 
+on c.GeographyID = g.GeographyID
+
+
+--customer review table cleaing
+--replace double space two single spance in the review text
+
+select 
+	ReviewID,
+	CustomerID,
+	ProductID,
+	ReviewDate,
+	Rating,
+	replace(ReviewText,'  ',' ') as "ReviewText"
+
+from customer_reviews
+
+--customer engagement_data  tabel
+-- cleaned table (engagmentDate)
+select 
+	EngagementID,
+	ContentID,
+	CampaignID,
+	ProductID,
+	upper(replace(ContentType,'Socialmedia','Social Media' )) as ContentType,
+	Likes,
+	format(convert(date,EngagementDate),'dd/MM/yyyy') as EngagementDate ,
+	left(ViewsClicksCombined,charindex('-',ViewsClicksCombined)-1) as Views,
+	right(viewsClicksCombined,len(viewsClicksCombined)- charindex('-',viewsClicksCombined))as  Clicks 
+
+from engagement_data
+where ContentType !='NEWSLETTER' --  filter because it's not relevant for our analysis 
+
+------------------------------------------
+
+-- customer journey cleaning 
+-- main query 
+select JourneyID,  
+    CustomerID,  
+    ProductID,  
+    VisitDate,  
+    Stage,  
+    Action, 
+    round(COALESCE(Duration, avg_duration,avg_golbel ),0) AS Duration 
+	from 
+(
+--sub query 
+select 
+	JourneyID,
+	CustomerID,
+	ProductID,
+	VisitDate,
+	upper(Stage) as Stage ,
+	Action,
+	Duration
+	,AVG(Duration) over(partition by VisitDate) avg_duration,
+	avg(Duration) over() avg_golbel 
+	,ROW_NUMBER() over(partition by JourneyID,CustomerID,ProductID,
+	VisitDate,
+	upper(Stage),Action order by JourneyId ) as row_num
+
+from customer_journey
+) as subquery 
+where row_num = 1
