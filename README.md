@@ -60,6 +60,12 @@ It includes real-time visual KPIs, funnel analysis, customer sentiment, and enga
 ## 📸 Dashboard Overview
 
 ![Dashboard Overview](docs/overview_dashboard.png)
+🔹 Conversion Details Dashboard
+![Conversion Details](docs/coversion details dashboard.png)
+🔹 Customer Review Details
+![Customer Reviews](docs/customer review details.png)
+🔹 Social Media Performance
+![Social Media](docs/social media details dashboard.png)
 
 
 ---
@@ -67,7 +73,7 @@ It includes real-time visual KPIs, funnel analysis, customer sentiment, and enga
 ## 💼 About Me
 
 I'm **Abdullah Saleh**, a junior data analyst transitioning from civil engineering into data analysis and business intelligence.  
-Connect with me on [LinkedIn](https://www.linkedin.com/) and explore my portfolio on [GitHub](https://github.com/).
+
 
 ---
 
