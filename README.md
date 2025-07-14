@@ -60,12 +60,15 @@ It includes real-time visual KPIs, funnel analysis, customer sentiment, and enga
 ## 📸 Dashboard Overview
 
 ![Dashboard Overview](docs/overview_dashboard.png)
-🔹 Conversion Details Dashboard
-![Conversion Details](docs/coversion details dashboard.png)
-🔹 Customer Review Details
-![Customer Reviews](docs/customer review details.png)
-🔹 Social Media Performance
-![Social Media](docs/social media details dashboard.png)
+🔹 Conversion Details Dashboard  
+![Conversion Details](docs/coversion%20details%20dashboard.png)
+
+🔹 Customer Review Details  
+![Customer Reviews](docs/customer%20review%20details.png)
+
+🔹 Social Media Performance  
+![Social Media](docs/social%20media%20details%20dashboard.png)
+
 
 
 ---
