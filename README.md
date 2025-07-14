@@ -57,7 +57,7 @@ It includes real-time visual KPIs, funnel analysis, customer sentiment, and enga
 ---
 
 ## 📸 Screenshots
-
+docs/overview_dashboard.png
 
 ---
 
